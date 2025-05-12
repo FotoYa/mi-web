@@ -1,15 +1,25 @@
 backend:
   name: git-gateway
   branch: main
-local_backend: true  # Para pruebas locales
-media_folder: "img"
-public_folder: "/img"
+  commit_messages:
+    create: "Creación: {{collection}} «{{slug}}»"
+    update: "Actualización: {{collection}} «{{slug}}»"
+    delete: "Borrado: {{collection}} «{{slug}}»"
+    uploadMedia: "Subida de imagen: {{path}}"
+    deleteMedia: "Borrado de imagen: {{path}}"
+
+# Configuración de medios (imágenes)
+media_folder: "static/img"  # Carpeta donde se guardarán las imágenes
+public_folder: "/img"      # Ruta pública para acceder a ellas
+
+# Colecciones (tus páginas editables)
 collections:
   - name: "pages"
-    label: "Pages"
+    label: "Páginas"
     files:
       - name: "index"
-        label: "Home Page"
+        label: "Página de inicio"
         file: "index.html"
         fields:
-          - { name: "title", label: "Title", widget: "string" }
+          - { name: "title", label: "Título", widget: "string" }
+          - { name: "body", label: "Contenido", widget: "markdown" }
