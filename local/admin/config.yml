@@ -1,15 +1,23 @@
-# admin/config.yml
 backend:
-  name: github
+  name: git-gateway
   branch: main
-  repo: FotoYa/mi-web  # ¡Cambia esto!
+  repo: FotoYa/mi-web  # ¡Esto es clave! Asegúrate de que coincida con tu repositorio
+  commit_messages:
+    create: "Creación: {{collection}} «{{slug}}»"
+    update: "Actualización: {{collection}} «{{slug}}»"
 
-media_folder: "img"
+# Configuración de archivos multimedia
+media_folder: "img"          # Carpeta donde se guardarán las imágenes
+public_folder: "/img"       # Ruta pública para acceder a ellas
+
+# Colecciones (contenido editable)
 collections:
   - name: "pages"
-    label: "Pages"
+    label: "Páginas"
     files:
       - name: "index"
-        file: "index.html"
+        label: "Página de inicio"
+        file: "index.html"   # Archivo que se editará
         fields:
-          - { name: "title", label: "Title", widget: "string" }
+          - { name: "title", label: "Título principal", widget: "string" }
+          - { name: "content", label: "Contenido", widget: "markdown" }
