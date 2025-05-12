@@ -1,23 +1,22 @@
 backend:
   name: git-gateway
   branch: main
-  repo: FotoYa/mi-web  # ¡Esto es clave! Asegúrate de que coincida con tu repositorio
+  repo: FotoYa/mi-web  # ¡Asegúrate que coincida con tu repositorio!
   commit_messages:
     create: "Creación: {{collection}} «{{slug}}»"
     update: "Actualización: {{collection}} «{{slug}}»"
 
-# Configuración de archivos multimedia
-media_folder: "img"          # Carpeta donde se guardarán las imágenes
-public_folder: "/img"       # Ruta pública para acceder a ellas
+# Configuración simplificada (sin carpetas vacías)
+media_folder: "uploads"  # Carpeta que el CMS creará automáticamente
+public_folder: "/uploads"
 
-# Colecciones (contenido editable)
 collections:
   - name: "pages"
     label: "Páginas"
     files:
       - name: "index"
         label: "Página de inicio"
-        file: "index.html"   # Archivo que se editará
+        file: "index.html"
         fields:
-          - { name: "title", label: "Título principal", widget: "string" }
-          - { name: "content", label: "Contenido", widget: "markdown" }
+          - { name: "title", label: "Título", widget: "string" }
+          - { name: "body", label: "Contenido", widget: "markdown" }
