@@ -1,17 +1,15 @@
 backend:
   name: git-gateway
   branch: main
-publish_mode: editorial_workflow
-media_folder: "img"  # Carpeta donde se guardarán las imágenes
+local_backend: true  # Para pruebas locales
+media_folder: "img"
 public_folder: "/img"
 collections:
-  - name: "pagina_inicio"
-    label: "Editar Inicio"
+  - name: "pages"
+    label: "Pages"
     files:
-      - name: "inicio"
-        label: "Contenido de Inicio"
-        file: "_data/inicio.json"  # Archivo donde se guardarán los cambios
+      - name: "index"
+        label: "Home Page"
+        file: "index.html"
         fields:
-          - { name: "titulo_principal", label: "Título Principal", widget: "string" }
-          - { name: "subtitulo", label: "Subtítulo", widget: "text" }
-          - { name: "imagen_hero", label: "Imagen Principal", widget: "image" }
+          - { name: "title", label: "Title", widget: "string" }
